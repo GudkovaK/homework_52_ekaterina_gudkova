@@ -1,0 +1,30 @@
+[
+  {
+    "model": "webapp.task",
+    "pk": 1,
+    "fields": {
+      "description": "Купить продукты в магазине",
+      "status": "new",
+      "due_date": "2025-12-25"
+    }
+  },
+
+  {
+    "model": "webapp.task",
+    "pk": 2,
+    "fields": {
+      "description": "Позвонить маме",
+      "status": "done",
+      "due_date": null
+    }
+  },
+  {
+    "model": "webapp.task",
+    "pk": 3,
+    "fields": {
+      "description": "Записаться к врачу",
+      "status": "new",
+      "due_date": "2025-12-30"
+    }
+  }
+]
