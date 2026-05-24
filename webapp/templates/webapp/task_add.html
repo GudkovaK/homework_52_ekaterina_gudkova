@@ -1,0 +1,26 @@
+{% extends 'webapp/base.html' %}
+{% block content %}
+<h4 class="mb-3">Добавить задачу</h4>
+<form method="post">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label">Описание</label>
+        <textarea name="description" class="form-control" rows="3" required></textarea>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Статус</label>
+        <select name="status" class="form-select">
+            {% for value, label in status_choices %}
+            <option value="{{ value }}">{{ label }}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Дата выполнения</label>
+        <input type="text" name="due_date" class="form-control" placeholder="2025-12-31">
+        <div class="form-text">Формат: YYYY-MM-DD</div>
+    </div>
+    <button type="submit" class="btn btn-success">Сохранить</button>
+    <a href="/tasks/" class="btn btn-secondary">Отмена</a>
+</form>
+{% endblock %}
