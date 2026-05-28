@@ -1,0 +1,23 @@
+{% extends 'webapp/base.html' %}
+{% block content %}
+<h4 class="mb-3">Задача #{{ task.id }}</h4>
+<table class="table table-bordered">
+    <tr>
+        <th>Описание</th>
+        <td>{{ task.description }}</td>
+    </tr>
+    <tr>
+        <th>Подробное описание</th>
+        <td style="white-space: pre-wrap;">{{ task.detailed_description|default:"—" }}</td>
+    </tr>
+    <tr>
+        <th>Статус</th>
+        <td>{{ task.get_status_display }}</td>
+    </tr>
+    <tr>
+        <th>Дата выполнения</th>
+        <td>{{ task.due_date|default:"—" }}</td>
+    </tr>
+</table>
+<a href="{% url 'task_list' %}" class="btn btn-secondary">Назад</a>
+{% endblock %}
