@@ -1,6 +1,6 @@
 {% extends 'webapp/base.html' %}
 {% block content %}
-<a href="/tasks/add/" class="btn btn-primary mb-3">Добавить задачу</a>
+<h4 class="mb-3">Список задач</h4>
 
 {% if tasks %}
 <table class="table table-bordered">
@@ -8,24 +8,24 @@
         <tr>
             <th>Описание</th>
             <th>Статус</th>
-            <th>Дата</th>
+            <th>Дата выполнения</th>
             <th>Действия</th>
         </tr>
     </thead>
     <tbody>
         {% for task in tasks %}
         <tr>
-            <td>{{ task.description }}</td>
+            <td><a href="{% url 'task_detail' task.id %}">{{ task.description }}</a></td>
             <td>{{ task.get_status_display }}</td>
             <td>{{ task.due_date|default:"—" }}</td>
             <td>
-                <a href="/tasks/{{ task.id }}/delete/" class="btn btn-danger btn-sm">Удалить</a>
+                <a href="{% url 'task_delete' task.id %}" class="btn btn-danger btn-sm">Удалить</a>
             </td>
         </tr>
         {% endfor %}
     </tbody>
 </table>
 {% else %}
-<p>Задач нет.</p>
+<p>Задач нет</p>
 {% endif %}
 {% endblock %}
