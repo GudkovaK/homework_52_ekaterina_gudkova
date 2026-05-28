@@ -8,6 +8,11 @@ STATUS_CHOICES = [
 
 class Task(models.Model):
     description = models.TextField(verbose_name='Описание')
+    detailed_description = models.TextField(
+        verbose_name='Подробное описание',
+        null=True,
+        blank=True
+    )
     status = models.CharField(
         max_length=20,
         choices=STATUS_CHOICES,

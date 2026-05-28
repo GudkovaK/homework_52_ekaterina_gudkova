@@ -4,6 +4,7 @@
     "pk": 1,
     "fields": {
       "description": "Купить продукты в магазине",
+      "detailed_description": "Купить молоко,хлеб,яйца и мороженое",
       "status": "new",
       "due_date": "2025-12-25"
     }
@@ -14,6 +15,7 @@
     "pk": 2,
     "fields": {
       "description": "Позвонить маме",
+      "detailed_description": "Узнать рецепт пирога",
       "status": "done",
       "due_date": null
     }
@@ -23,6 +25,7 @@
     "pk": 3,
     "fields": {
       "description": "Записаться к врачу",
+      "detailed_description": "Записаться к терапевту,не забыть взять паспорт и медкнижку.",
       "status": "new",
       "due_date": "2025-12-30"
     }
