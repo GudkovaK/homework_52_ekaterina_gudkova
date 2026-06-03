@@ -19,5 +19,7 @@
         <td>{{ task.due_date|default:"—" }}</td>
     </tr>
 </table>
+<a href="{% url 'task_edit' task.id %}" class="btn btn-warning">Редактировать</a>
+<a href="{% url 'task_delete' task.id %}" class="btn btn-danger">Удалить</a>
 <a href="{% url 'task_list' %}" class="btn btn-secondary">Назад</a>
 {% endblock %}
