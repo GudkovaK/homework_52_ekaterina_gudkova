@@ -1,25 +1,2 @@
 {% csrf_token %}
-<div class="mb-3">
-    <label class="form-label">Описание</label>
-    {{ form.description.errors }}
-    <textarea name="description" class="form-control" rows="2" required>{{ form.description.value|default:'' }}</textarea>
-</div>
-<div class="mb-3">
-    <label class="form-label">Подробное описание</label>
-    {{ form.detailed_description.errors }}
-    <textarea name="detailed_description" class="form-control" rows="4">{{ form.detailed_description.value|default:'' }}</textarea>
-</div>
-<div class="mb-3">
-    <label class="form-label">Статус</label>
-    {{ form.status.errors }}
-    <select name="status" class="form-select">
-        {% for value, label in form.status.field.choices %}
-        <option value="{{ value }}" {% if form.status.value == value %}selected{% endif %}>{{ label }}</option>
-        {% endfor %}
-    </select>
-</div>
-<div class="mb-3">
-    <label class="form-label">Дата выполнения</label>
-    {{ form.due_date.errors }}
-    <input type="text" name="due_date" class="form-control" placeholder="YYYY-MM-DD" value="{{ form.due_date.value|default:'' }}">
-</div>
+{{ form.as_p }}

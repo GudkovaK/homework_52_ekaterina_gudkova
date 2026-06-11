@@ -1,16 +1,10 @@
 from django import forms
-from webapp.models import Task, STATUS_CHOICES
+from webapp.models import Task
 
-class TaskForm(forms.Form):
-    description = forms.CharField(widget=forms.Textarea, label='Описание')
-    detailed_description = forms.CharField(
-        widget=forms.Textarea,
-        label='Подробное описание',
-        required=False
-    )
-    status = forms.ChoiceField(choices=STATUS_CHOICES, label='Статус')
-    due_date = forms.DateField(
-        required=False,
-        label='Дата выполнения',
-        widget=forms.TextInput(attrs={'placeholder': 'YYYY-MM-DD'})
-    )
+class TaskForm(forms.ModelForm):
+    class Meta:
+        model = Task
+        fields = ['description', 'detailed_description', 'status', 'due_date']
+        widgets = {
+            'due_date': forms.DateInput(attrs={'type': 'date'}),
+        }
